@@ -14,7 +14,9 @@ public class MessageContoller {
     @RequestMapping(value = "/messages", method = RequestMethod.GET)
     public ResponseEntity<String> getMsg()
     {    MessageService messageService = new MessageService();
-         return new ResponseEntity<String>(messageService.getMsg(),HttpStatus.OK);
+         String msg = messageService.getMsg();
+         System.out.println(msg);
+         return new ResponseEntity<String>(msg,HttpStatus.OK);
     }
 
 }
