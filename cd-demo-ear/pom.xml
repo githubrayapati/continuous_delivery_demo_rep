@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ibm.cd</groupId>
+	<artifactId>cd-demo-ear</artifactId>
+	<packaging>ear</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>cd-demo-ear Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-ear-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<modules>
+							<webModule>
+								<groupId>com.ibm.cd</groupId>
+								<artifactId>continuous-delivery-demo</artifactId>
+								<contextRoot>demo</contextRoot>
+								<bundleFileName>demo.war</bundleFileName>
+							</webModule>
+						</modules>
+						<displayName>cd-demo</displayName>
+						<!-- If I want maven to generate the application.xml, set this to true -->
+						<generateApplicationXml>true</generateApplicationXml>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<parent>
+		<groupId>com.ibm.cd</groupId>
+		<artifactId>cd-demo-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../cd-demo-parent/pom.xml </relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.ibm.cd</groupId>
+			<artifactId>continuous-delivery-demo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+</project>
